@@ -5,6 +5,7 @@ body {
 button {
     border-radius: 4px;
 }
+
 /* Video Feed Styling */
 #overlay {
 /* Video Feed Styling:
@@ -12,7 +13,8 @@ button {
  * webgazer.js sets defaults for: display, position, top, left, width, height
  */
 }
-#webgazerVideoContainer {
+
+/* #webgazerVideoContainer {
     display: block !important; 
     position: fixed !important;
     top: 0px !important;
@@ -20,50 +22,29 @@ button {
     width: 320px !important;
     height: 240px !important;
     z-index: 1;
-}
+} */
 
 /* Navbar styling */
-#webgazerNavbar {
+/* #webgazerNavbar {
     left: 320px;
     width: calc(100% - 320px);
     z-index: 0;
     box-shadow: 0px 3px 5px #ddd;
     border:0px;
     background-color: #fff;
-}
+} */
 
 #Accuracy a{
-    background-color: #222;
-    color: #eee;
-    left: -15px;
-    padding-left: 80px;
-    padding-right: 40px;
-}
-#Accuracy {
-    background-color: #222;
-    padding-left: inherit;
+    color: gray;
 }
 
-li {
-    padding-left: 50px;
-}
-.navbar-right li {
-    padding-right: 20px;
-}
-
-.helpBtn {
-    display: inline-block;
-    padding: 15px;
-    border: none;
-    background: none;
-    color: #777;
-}
-.helpBtn:hover {
-    color: black!important;
-    text-decoration: none;
-}
 .modal-header {
     border-bottom: none!important;
+}
+
+.modal-content button{
+    border-top-left-radius: 0%;
+    border-top-right-radius: 0%;
 }
 
 /* Calibration button styling */
@@ -82,16 +63,15 @@ li {
 
 /* Calibration point position */
 #Pt1{
-    top: 70px;
-    left:340px;
+    top: 2vw;
+    left: 2vw;
 }
 #Pt2{
-    top: 70px;
+    top: 2vw;
     left:50vw;
-    margin-left: 340;
 }
 #Pt3{
-    top: 70px;
+    top: 2vw;
     right:2vw;
 }
 #Pt4{
