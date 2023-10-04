@@ -12,12 +12,25 @@ window.onload = async function() {
     await webgazer.setRegression('ridge') /* currently must set regression and tracker */
         //.setTracker('clmtrackr')
         .setGazeListener(function(data, clock) {
-            console.log(data); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
+            // console.log(data); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
           //   console.log(clock); /* elapsed time in milliseconds since webgazer.begin() was called */
             
             // if (data.x < 5*vh ){
             //     console.log("right");
             // }
+
+            // // 获取眼动位置下的元素
+            var elementUnderCursor = document.elementFromPoint(100, 200);
+            // console.log(elementUnderCursor);
+            // // 移除之前添加的效果类
+            // document.querySelectorAll('.hover-effect-element.hovered').forEach(function(element) {
+            // element.classList.remove('hovered');
+            // });
+
+            // if (elementUnderCursor) {
+            // // 当用户的眼动位置位于某个元素上时，添加效果类
+            // elementUnderCursor.classList.add('hovered');
+            // };
         })
         .saveDataAcrossSessions(true)
         .begin();

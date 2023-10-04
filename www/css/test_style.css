@@ -90,14 +90,40 @@ button {
     font-size: 65px;
 } */
 
+/* .data-ul li{
+    display:inline;
+    display: flex;
+    border:1px #ccc solid;
+    margin-right:50px;
+    font-size: 4vw;
+} */
+
+
+
+.data-key:hover {
+    font-weight:bold;
+}
+
+/* .data-key:hover+.data-key-fm {
+    color: blue;
+} */
+
 .data-ul li{
     display:inline;
     /* display: flex; */
-    border:1px #ccc solid;
+    /* border:1px #ccc solid; */
     margin-right:50px;
-    font-size: 65px;
+    font-size: 4vw;
 }
 
-.data-key {
-    
+/* .data-key {
+    font-weight:bold;
+}
+
+.data-key-fm {
+    color: blue;
+} */
+
+.hovered {
+    color: red;
 }
