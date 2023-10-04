@@ -6,6 +6,8 @@ webgazer.showVideoPreview(false) /* shows all video previews */
 
 window.onload = async function() {
 
+    // data();
+
     //start the webgazer tracker
     await webgazer.setRegression('ridge') /* currently must set regression and tracker */
         //.setTracker('clmtrackr')
@@ -13,9 +15,9 @@ window.onload = async function() {
             console.log(data); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
           //   console.log(clock); /* elapsed time in milliseconds since webgazer.begin() was called */
             
-            if (data.x < 5*vh ){
-                console.log("right");
-            }
+            // if (data.x < 5*vh ){
+            //     console.log("right");
+            // }
         })
         .saveDataAcrossSessions(true)
         .begin();
@@ -26,7 +28,6 @@ window.onload = async function() {
 
     //Set up the webgazer video feedback.
     var setup = function() {
-
         //Set up the main canvas. The main canvas is used to calibrate the webgazer.
         var canvas = document.getElementById("plotting_canvas");
         canvas.width = window.innerWidth;

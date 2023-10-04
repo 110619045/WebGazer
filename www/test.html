@@ -29,6 +29,7 @@ Instructions on use can be found in the README repository.
         <script src="./js/precision_calculation.js"></script>
         <script src="./js/precision_store_points.js"></script>
 
+        <script src="./js/data.js"></script>
         <div id="Accuracy"><a>Not yet Calibrated</a></div>
         
         <!-- Calibration points -->
@@ -47,14 +48,141 @@ Instructions on use can be found in the README repository.
         <!-- Modal -->
         <div id="helpModal" class="modal fade" role="dialog">
           <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
               <button id="closeBtn" type="button" class="btn btn-default" data-bs-dismiss="modal">Close & load saved model </button>
               <button type="button" id='start_calibration' class="btn btn-primary" data-bs-dismiss="modal" onclick="Restart()">Calibrate</button>
             </div>
-
           </div>
+        </div>
+
+        <!-- 這裡將動態渲染陣列資料 -->
+        <!-- <div>
+          <ul id="data-list">
+          </ul>
+        </div> -->
+
+        <div class="data">
+          <!-- <h2>key</h2>
+          <h2>house</h2>
+          <h2>apple</h2>
+          <h2>game </h2>
+          <h2>computer</h2>
+          <h2>technical</h2>
+          <h2>phone</h2>
+          <h2>shop</h2>
+          <h2>drink</h2>
+          <h2>water</h2>
+          <h2>cup</h2>
+          <h2>computer</h2>
+          <h2>fruit</h2>
+          <h2>ocean</h2>
+          <h2>drink</h2>
+          <h2>lake</h2>
+          <h2>communication</h2>
+          <h2>net</h2>
+          <h2>ball</h2>
+          <h2>technical</h2>
+          <h2>science</h2>
+          <h2>fish</h2>
+
+          <h2>key</h2>
+          <h2>house</h2>
+          <h2>apple</h2>
+          <h2>game </h2>
+          <h2>computer</h2>
+          <h2>technical</h2>
+          <h2>phone</h2>
+          <h2>shop</h2>
+          <h2>drink</h2>
+          <h2>water</h2>
+          <h2>cup</h2>
+          <h2>computer</h2>
+          <h2>fruit</h2>
+          <h2>ocean</h2>
+          <h2>drink</h2>
+          <h2>lake</h2>
+          <h2>communication</h2>
+          <h2>net</h2>
+          <h2>ball</h2>
+          <h2>technical</h2>
+          <h2>science</h2>
+          <h2>fish</h2> -->
+          <ul class="data-ul">
+            <li>key</li>
+            <li>house</li>
+            <li>apple</li>
+            <li>game </li>
+            <li>computer</li>
+            <li>technical</li>
+            <li>phone</li>
+            <li>shop</li>
+            <li>drink</li>
+            <li>water</li>
+            <li>cup</li>
+            <li>computer</li>
+            <li>fruit</li>
+            <li>ocean</li>
+            <li>drink</li>
+            <li>lake</li>
+            <li>communication</li>
+            <li>net</li>
+            <li>ball</li>
+            <li>technical</li>
+            <li>science</li>
+            <li>fish</li>
+
+            <li>key</li>
+            <li>house</li>
+            <li>apple</li>
+            <li>game </li>
+            <li>computer</li>
+            <li>technical</li>
+            <li>phone</li>
+            <li>shop</li>
+            <li>drink</li>
+            <li>water</li>
+            <li>cup</li>
+            <li>computer</li>
+            <li>fruit</li>
+            <li>ocean</li>
+            <li>drink</li>
+            <li>lake</li>
+            <li>communication</li>
+            <li>net</li>
+            <li>ball</li>
+            <li>technical</li>
+            <li>science</li>
+            <li>fish</li>
+            <li>key</li>
+            <li>house</li>
+            <li>apple</li>
+            <li>game </li>
+            <li>computer</li>
+            <li>technical</li>
+            <li>phone</li>
+            <li>shop</li>
+            <li>drink</li>
+            <li>water</li>
+            <li>cup</li>
+            <li>computer</li>
+            <li>fruit</li>
+            <li>ocean</li>
+            <li>drink</li>
+            <li>lake</li>
+            <li>communication</li>
+            <li>net</li>
+            <li>ball</li>
+            <li>technical</li>
+            <li>science</li>
+            <li>fish</li>
+            <li>key</li>
+            <li>house</li>
+            <li>apple</li>
+            <li>game </li>
+            <li>computer</li>
+            <li>technical</li>
+          </ul>
         </div>
 
         <!-- Latest compiled JavaScript -->
