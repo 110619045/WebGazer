@@ -39,8 +39,7 @@ window.onload = async function() {
 
                 if (x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom) {
                     // 找到匹配的 font 元素
-                    
-                    // console.log('找到匹配的 font 元素：', fontElement);
+                    console.log('找到匹配的 font 元素：', fontElement);
                     // console.log('currentElement：', currentElement);
                     
                     // if (currentElement === fontElement) {
@@ -63,12 +62,12 @@ window.onload = async function() {
                     const currentTime = new Date().getTime();
                     const elapsedTime = currentTime - startTime;
 
-                    console.log('currentTime：', currentTime);
-                    console.log('startTime：', startTime);
-                    console.log('elapsedTime：', elapsedTime);
+                    // console.log('currentTime：', currentTime);
+                    // console.log('startTime：', startTime);
+                    // console.log('elapsedTime：', elapsedTime);
 
                     if (elapsedTime >= 3000) { // 3秒（3000毫秒）
-                        console.log('停留超过三秒的 font 元素：', fontElement);
+                        // console.log('停留超过三秒的 font 元素：', fontElement);
                     }
                     
                     // 重置计时器
