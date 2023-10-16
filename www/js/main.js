@@ -3,18 +3,21 @@ webgazer.showVideoPreview(false) /* shows all video previews */
         .showPredictionPoints(true) /* shows a square every 100 milliseconds where current prediction is */
         .applyKalmanFilter(true); /* Kalman Filter defaults to on. Can be toggled by user. */
 
+// 取得Firebase引用
+// const db = firebase.database();
+var text = ['sky', 'cloud'];
 
-// //一開始眼動的時間
-// var gazeStartTime = null;
-// var elementUnderCursor = null;
-let currentElement = null; // 用于跟踪当前停留的元素
-// console.log('gazeStartTime0：'+gazeStartTime);
+let currentElement = null; // 用於追蹤當前停留的元素
+let startTime = null;  //開始第一個元素的時間
+let PreviousElement = null;  //取得前一個元素
 window.onload = async function() {
+    // let startTime = Date.now(); //設定開始時間
+
     //start the webgazer tracker
     await webgazer.setRegression('ridge') /* currently must set regression and tracker */
         //.setTracker('clmtrackr')
         .setGazeListener(function(data, timestamp) {
-            console.log('timestamp：'+timestamp);
+            // console.log('timestamp：'+timestamp);
             /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
             
             if(data == null){
@@ -25,101 +28,59 @@ window.onload = async function() {
             var x = data.x;
             var y = data.y;
             
-            let startTime = null; // 用于跟踪停留的开始时间
-
+            // console.log('startTime:', startTime); 
             // console.log('x,y：'+ data.x + ',' + data.y);
             // console.log('fontElements：'+ fontElements);
+            // console.log('currentElement：', currentElement);
             
             // 迭代 font 元素，檢查獲得哪個元素
             for (const fontElement of fontElements) {
                 const rect = fontElement.getBoundingClientRect();
-                // console.log('fontElement：'+ fontElement);
-                // console.log('rect：' rect.left);
                 // console.log('currentElement0：', currentElement);
-
+                // console.log(fontElement)
+                // 找到目前停留的font元素
                 if (x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom) {
-                    // 找到匹配的 font 元素
-                    console.log('找到匹配的 font 元素：', fontElement);
-                    // console.log('currentElement：', currentElement);
-                    
-                    // if (currentElement === fontElement) {
-                    //     // 如果是同一个元素，检查停留时间
-                    //     const currentTime = new Date().getTime();
-                    //     const elapsedTime = currentTime - startTime;
-                    //     console.log('currentTime:'+ currentTime);
-                    //     console.log('startTime:'+ startTime);
-                    //     console.log('elapsedTime：'+ elapsedTime);
-
-                    //     if (elapsedTime >= 3000) { // 3秒（3000毫秒）
-                    //         // console.log('停留超过三秒的 font 元素：', fontElement);
-                    //     }
-                    // } else {
-                    //     // 否则，重置计时器
-                    //     currentElement = fontElement;
-                    //     startTime = new Date().getTime();
-                    // }
-
-                    const currentTime = new Date().getTime();
-                    const elapsedTime = currentTime - startTime;
-
-                    // console.log('currentTime：', currentTime);
-                    // console.log('startTime：', startTime);
-                    // console.log('elapsedTime：', elapsedTime);
-
-                    if (elapsedTime >= 3000) { // 3秒（3000毫秒）
-                        // console.log('停留超过三秒的 font 元素：', fontElement);
-                    }
-                    
-                    // 重置计时器
+                    // console.log('找到匹配的 font 元素：', fontElement);
+                    // console.log("PreviousElement:" + PreviousElement);
                     currentElement = fontElement;
-                    startTime = currentTime;
+                    // console.log('currentElement1：', currentElement);
+                }
+            }
+            // console.log('currentElement2：', currentElement);
 
+            if(PreviousElement === null){       //初始化前一個元素
+                PreviousElement = currentElement; 
+                // console.log('PreviousElement：', PreviousElement);
+                startTime = new Date().getTime();  //開始計第一個時
+            }
+
+            if(currentElement === PreviousElement){
+                currentTime = new Date().getTime(); //現在時間
+                console.log("跟上一個一樣");
+                totalTime = currentTime - startTime;
+
+                if(totalTime >= 1500){
+                    console.log('總共看了：', totalTime);
+                    // PreviousElement.classList.remove('rehovered');
+                    PreviousElement.classList.add('hovered');
+                    console.log("元素：",PreviousElement.id);
+                    if(PreviousElement.id != text[0]){
+                        var newLength = text.unshift(PreviousElement.id); // 加到陣列前端
+                    }
                 }
             }
 
-            // if(data == null){
-            //     elementUnderCursor = null;
-            //     return;
-            // }else {
-            //     // 獲取眼動位置下的元素
-            //     elementUnderCursor = document.elementFromPoint(data.x, data.y);
-            // }
-            // console.log('elementUnderCursor:'+elementUnderCursor);
-
-
-
-            // console.log('gazeStartTime：'+gazeStartTime);
-
-            //檢查眼動為是否停留在元素上
-            // if(isElementUnderGaze(elementUnderCursor, x, y)){
+            if(currentElement !== PreviousElement){
+                // PreviousElement.classList.add('rehovered');
+                PreviousElement.classList.remove('hovered');
                 
-            //     if (gazeStartTime === null) {
-            //         gazeStartTime = new Date().getTime();
-            //         // console.log(gazeStartTime);
-            //     } else {
-            //         var currentTime = new Date().getTime();
-            //         var gazeDuration = currentTime - gazeStartTime;
+                startTime = new Date().getTime();  //設定新的開始時間
+                console.log("跟上一個不一樣");
+                PreviousElement = currentElement;       //設定新的前一個元素
+                console.log('新的PreviousElement：', PreviousElement);
+            }
 
-            //         // 停留時間觸發事件
-            //         if (gazeDuration >= 3000) {
-            //             // console.log(elementUnderCursor);
-            //             // console.log('元素上停留超過3秒！');
-
-            //             // 加入hovered
-            //             elementUnderCursor.classList.add('hovered');
-            //             gazeDuration = currentTime - gazeStartTime;
-
-            //         }else{
-            //             elementUnderCursor.classList.remove('hovered');
-            //         }
-            //     }
-            // }else {
-            //     //沒有元素
-            //     gazeStartTime = null;
-            // }
-
-            // console.log('gazeStartTime2：'+gazeStartTime);
-
+            console.log(text);
         })
         .saveDataAcrossSessions(true)
         .begin();
@@ -147,7 +108,6 @@ window.onbeforeunload = function() {
     webgazer.end();
 }
 
-
 //  Restart the calibration process by clearing the local storage and reseting the calibration point
 
 function Restart(){
@@ -155,14 +115,4 @@ function Restart(){
     webgazer.clearData();
     ClearCalibration();
     PopUpInstruction();
-}
-
-
-function isElementUnderGaze(element, x, y) {
-    if(element!=null){
-        var elementRect = element.getBoundingClientRect();
-        // console.log(element);
-        // console.log(elementRect.left);
-        return x >= elementRect.left && x <= elementRect.right && y >= elementRect.top && y <= elementRect.bottom;    
-    }
 }

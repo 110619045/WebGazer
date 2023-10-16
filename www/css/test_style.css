@@ -90,13 +90,13 @@ button {
     margin:1vw;
 }
 
-.data-key:hover {
+/* .data-key:hover {
     transform: scale(1.2);
 }
 
 .data-key:hover~.data-key-fm {
     color: blue;
-}
+} */
 
 .data-ul li{
     display:inline;
@@ -106,10 +106,42 @@ button {
     font-size: 4vw;
 }
 
-.hovered{
+/* .excluded{
+    transform: scale(1) !important;
+} */
+
+@keyframes rehoveredAnimation {
+    0% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes hoveredAnimation {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+.rehovered {
+    animation: rehoveredAnimation 0.3s 0s ease-in forwards;
+}
+
+.hovered {
+    /* animation: hoveredAnimation 0.3s 0s ease-in forwards; */
     transform: scale(1.2);
 }
 
-.excluded{
-    transform: scale(1) !important;
+.hovered-fm {
+    color: blue;
+}
+
+#key.hovered ~ #house, 
+#key.hovered ~ #game {
+    color: blue;
 }

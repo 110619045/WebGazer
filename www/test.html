@@ -1,14 +1,5 @@
 <!DOCTYPE html>
-<!--
-This is an example HTML that shows how WebGazer can be used on a website.
-This file provides the additional features:
-  * An integrated, intuitive and sleek action bar with an informative "help" module accessible at all times
-  * Structured 9-point calibration system
-  * Accuracy measure of predictions based on calibration process
-  * Video feedback regarding face positioning
-  * Improved eye predictions visible to the user
-Instructions on use can be found in the README repository.
--->
+
 <html>
     <head>
         <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
@@ -16,32 +7,37 @@ Instructions on use can be found in the README repository.
         <link rel="stylesheet" type="text/css" href="./css/test_style.css">
         <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
         <!-- <script src="./tensorflow.js"></script> -->
+        <script src="https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.2.0/firebase-database.js"></script>
+        <script src="/js/firebase.js"></script>
+        <script type="module" src="your-es6-module-file.js"></script>
+
         <script src="./webgazer.js"></script>
     </head>
     
     <body LANG="en-US" LINK="#0000ff" DIR="LTR">
       <div class="data excluded">
-        <font id="key" class="key              ">key         </font>
-        <font id="house           " class="house data-key-fm">house       </font>
-        <font id="apple           " class="apple            ">apple       </font>
-        <font id="game            " class="game data-key-fm ">game        </font>
-        <font id="computer        " class="computer         ">computer    </font>
-        <font id="technical       " class="technical        ">technical   </font>
-        <font id="phone           " class="phone            ">phone       </font>
-        <font id="shop            " class="shop             ">shop        </font>
-        <font id="drink           " class="drink            ">drink       </font>
-        <font id="water           " class="water            ">water       </font>
-        <font id="cup             " class="cup              ">cup           </font>
-        <font id="fruit           " class="fruit            ">fruit         </font>
-        <font id="ocean           " class="ocean            ">ocean         </font>
-        <font id="drink           " class="drink            ">drink         </font>
-        <font id="lake            " class="lake             ">lake          </font>
-        <font id="communication   " class="communication    ">communication </font>
-        <font id="net             " class="net              ">net           </font>
-        <font id="ball            " class="ball             ">ball          </font>
-        <font id="technical       " class="technical        ">technical     </font>
-        <font id="science         " class="science          ">science       </font>
-        <font id="fish            " class="fish             ">fish          </font>
+        <font id="key"              class="key              ">key         </font>
+        <font id="house"            class="house data-key-fm">house       </font>
+        <font id="apple"            class="apple            ">apple       </font>
+        <font id="game"             class="game data-key-fm ">game        </font>
+        <font id="computer"         class="computer         ">computer    </font>
+        <font id="technical"        class="technical        ">technical   </font>
+        <font id="phone"            class="phone            ">phone       </font>
+        <font id="shop"             class="shop             ">shop        </font>
+        <font id="drink"            class="drink            ">drink       </font>
+        <font id="water"            class="water            ">water       </font>
+        <font id="cup"              class="cup              ">cup           </font>
+        <font id="fruit"            class="fruit            ">fruit         </font>
+        <font id="ocean"            class="ocean            ">ocean         </font>
+        <font id="drink"            class="drink            ">drink         </font>
+        <font id="lake"             class="lake             ">lake          </font>
+        <font id="communication"    class="communication    ">communication </font>
+        <font id="net"              class="net              ">net           </font>
+        <font id="ball"             class="ball             ">ball          </font>
+        <font id="technical"        class="technical        ">technical     </font>
+        <font id="science"          class="science          ">science       </font>
+        <font id="fish"             class="fish             ">fish          </font>
       </div>
 
       <canvas id="plotting_canvas" width="500" height="500" style="cursor:crosshair;"></canvas>
