@@ -56,14 +56,14 @@ window.onload = async function() {
 
             if(currentElement === PreviousElement){
                 currentTime = new Date().getTime(); //現在時間
-                console.log("跟上一個一樣");
+//                console.log("跟上一個一樣");
                 totalTime = currentTime - startTime;
 
                 if(totalTime >= 1500){
-                    console.log('總共看了：', totalTime);
+//                    console.log('總共看了：', totalTime);
                     // PreviousElement.classList.remove('rehovered');
                     PreviousElement.classList.add('hovered');
-                    console.log("元素：",PreviousElement.id);
+//                    console.log("元素：",PreviousElement.id);
                     if(PreviousElement.id != text[0]){
                         var newLength = text.unshift(PreviousElement.id); // 加到陣列前端
                     }
@@ -75,12 +75,12 @@ window.onload = async function() {
                 PreviousElement.classList.remove('hovered');
                 
                 startTime = new Date().getTime();  //設定新的開始時間
-                console.log("跟上一個不一樣");
+//                console.log("跟上一個不一樣");
                 PreviousElement = currentElement;       //設定新的前一個元素
-                console.log('新的PreviousElement：', PreviousElement);
+//                console.log('新的PreviousElement：', PreviousElement);
             }
 
-            console.log(text);
+//            console.log(text);
         })
         .saveDataAcrossSessions(true)
         .begin();
