@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const API_KEY = "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" //sd-test
+  const API_KEY = "" //sd-test
   const submitButton = document.getElementById('submit-icon')
   const InputElement = document.getElementById('textInput')
   const ImageSection = document.getElementById('image-section')
