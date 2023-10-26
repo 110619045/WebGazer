@@ -145,7 +145,7 @@ button {
 #key.hovered ~ #game {
     color: blue;
 }
-/* 
+
 .input-container{
     width: 100%;
     max-width: 650px;
@@ -162,41 +162,4 @@ input{
     position: absolute;
     top: 10px;
     right: 30px;
-} */
-
-.show{
-    position: relative;
-    top: 40vh;
-
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
 }
-
-#image-bg{
-    height: 256px;
-    max-width: 100%; /* 设置最大宽度为100% */
-    /* background-image: url(../1.png); */
-    position: absolute;
-    z-index: 2;
-    /* transform: translate(-50%, -50%); */
-}
-
-#image-section{
-    position: absolute;
-    z-index: 1;
-    height: 256px;
-    /* max-width: 100%; */
-    width: 100%;;
-    /* transform: translate(-50%, -50%); */
-    text-align: center;
-    background-image: url(../The_False_Mirror.jpg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-/* body{
-    background-color: red;
-} */
