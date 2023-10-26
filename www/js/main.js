@@ -10,6 +10,7 @@ var text = ['sky', 'cloud'];
 let currentElement = null; // 用於追蹤當前停留的元素
 let startTime = null;  //開始第一個元素的時間
 let PreviousElement = null;  //取得前一個元素
+
 window.onload = async function() {
     // let startTime = Date.now(); //設定開始時間
 
@@ -66,6 +67,8 @@ window.onload = async function() {
 //                    console.log("元素：",PreviousElement.id);
                     if(PreviousElement.id != text[0]){
                         var newLength = text.unshift(PreviousElement.id); // 加到陣列前端
+                        // console.log(text);
+                        getImages();
                     }
                 }
             }
@@ -109,10 +112,49 @@ window.onbeforeunload = function() {
 }
 
 //  Restart the calibration process by clearing the local storage and reseting the calibration point
-
 function Restart(){
     document.getElementById("Accuracy").innerHTML = "<a>Not yet Calibrated</a>";
     webgazer.clearData();
     ClearCalibration();
     PopUpInstruction();
+}
+
+const API_KEY = "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" //sd-test
+
+
+const getImages = async() => {
+    const InputElement = JSON.stringify(text)
+    // console.log('輸入為：' + text);
+    console.log(InputElement)
+  const options ={
+    method:"POST",
+    headers:{
+      // "Authorization":'Bearer ${API_KEY}',
+      'Authorization': `Bearer ${API_KEY}`,
+      'Content-Type': "application/json"
+    },
+    body: JSON.stringify({
+      "prompt": "Surrealism" + InputElement,
+      "n": 1,
+      "size": "256x256"
+    })
+  }
+  try {
+    const response = await fetch('https://api.openai.com/v1/images/generations', options)
+    const data = await response.json()
+    console.log(data)
+
+    const ImageSection = document.getElementById('image-section')
+    ImageSection.replaceChildren();
+    data?.data.forEach(imageObject => {
+      const ImageContainer = document.createElement('div')
+      ImageContainer.classList.add('image-container')
+      const imageElement = document.createElement('img')
+      imageElement.setAttribute('src',imageObject.url)
+      ImageContainer.append(imageElement)
+      ImageSection.append(ImageContainer)
+    });
+  } catch (error){
+    console.error(error)
+  }
 }
