@@ -66,6 +66,9 @@ window.onload = async function() {
 //                    console.log("元素：",PreviousElement.id);
                     if(PreviousElement.id != text[0]){
                         var newLength = text.unshift(PreviousElement.id); // 加到陣列前端
+                    
+                        // console.log(text);
+                        getImages();
                     }
                 }
             }
@@ -115,4 +118,43 @@ function Restart(){
     webgazer.clearData();
     ClearCalibration();
     PopUpInstruction();
+}
+
+const API_KEY = "" //sd-test
+
+const getImages = async() => {
+    const InputElement = JSON.stringify(text)
+    // console.log('輸入為：' + text);
+    console.log(InputElement)
+  const options ={
+    method:"POST",
+    headers:{
+      // "Authorization":'Bearer ${API_KEY}',
+      'Authorization': `Bearer ${API_KEY}`,
+      'Content-Type': "application/json"
+    },
+    body: JSON.stringify({
+      "prompt": "Surrealism" + InputElement,
+      "n": 1,
+      "size": "256x256"
+    })
+  }
+  try {
+    const response = await fetch('https://api.openai.com/v1/images/generations', options)
+    const data = await response.json()
+    console.log(data)
+
+    const ImageSection = document.getElementById('image-section')
+    ImageSection.replaceChildren();
+    data?.data.forEach(imageObject => {
+      const ImageContainer = document.createElement('div')
+      ImageContainer.classList.add('image-container')
+      const imageElement = document.createElement('img')
+      imageElement.setAttribute('src',imageObject.url)
+      ImageContainer.append(imageElement)
+      ImageSection.append(ImageContainer)
+    });
+  } catch (error){
+    console.error(error)
+  }
 }
