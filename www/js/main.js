@@ -1,3 +1,4 @@
+
 // 攝影鏡頭相關
 webgazer.showVideoPreview(false) /* shows all video previews */
         .showPredictionPoints(true) /* shows a square every 100 milliseconds where current prediction is */
@@ -5,7 +6,7 @@ webgazer.showVideoPreview(false) /* shows all video previews */
 
 // 取得Firebase引用
 // const db = firebase.database();
-var text = ['sky', 'cloud'];
+var text = ['sky', 'cloud']; //key house Surrealism
 
 let currentElement = null; // 用於追蹤當前停留的元素
 let startTime = null;  //開始第一個元素的時間
@@ -120,12 +121,11 @@ function Restart(){
     PopUpInstruction();
 }
 
-const API_KEY = "" //sd-test
-
 const getImages = async() => {
     const InputElement = JSON.stringify(text)
     // console.log('輸入為：' + text);
     console.log(InputElement)
+
   const options ={
     method:"POST",
     headers:{
@@ -139,6 +139,7 @@ const getImages = async() => {
       "size": "256x256"
     })
   }
+
   try {
     const response = await fetch('https://api.openai.com/v1/images/generations', options)
     const data = await response.json()

@@ -1,32 +1,46 @@
-{/* <script type="module" src="your-es6-module-file.js"></script> */}
-const API_KEY = "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"
-const submitIcon = document.querySelector("#submit-icon")
+document.addEventListener('DOMContentLoaded', function() {
 
-const InputElement = ocument.querySelector("input")
+  const submitButton = document.getElementById('submit-icon')
+  const InputElement = document.getElementById('textInput')
+  const ImageSection = document.getElementById('image-section')
 
-const getImages = async() => {
-  const options ={
-    method:"POST",
-    Headers:{
-      "Authorization":'Bearer ${API_KEY}',
-      'Content-Type': "application/json"
-    },
-    body: JSON.stringify({
-      "prompt": InputElement.value,
-      "n": 1,
-      "size": "256x256"
-    })
+  const getImages = async() => {
+      const text = InputElement.value;
+      console.log('輸入為：' + text);
+
+      const options = {
+        method:"POST",
+        headers:{
+          // "Authorization":'Bearer ${API_KEY}',
+          'Authorization': `Bearer ${API_KEY}`,
+          'Content-Type': "application/json"
+        },
+        body: JSON.stringify({
+          "prompt": InputElement.value,
+          "n": 1,
+          "size": "256x256"
+        })
+      }
+      try {
+        const response = await fetch('https://api.openai.com/v1/images/generations', options)
+        const data = await response.json()
+        console.log(data)
+
+        data?.data.forEach(imageObject => {
+          const ImageContainer = document.createElement('div')
+          ImageContainer.classList.add('image-container')
+          const imageElement = document.createElement('img')
+          imageElement.setAttribute('src',imageObject.url)
+          ImageContainer.append(imageElement)
+          ImageSection.append(ImageContainer)
+        });
+      } catch (error){
+        console.error(error)
+      }
   }
-  try {
-    const response = await fetch('https://api.openai.com/v1/images/generations', options)
-    const data = await response.json()
-    console.log(data)
-  } catch (error){
-    console.error(error)
-  }
-}
 
-submitIcon.addEventListener('click', getImages)
+  submitButton.addEventListener('click', getImages)
+});
 
 // import { Configuration, OpenAIApi } from "openai";
 // const configuration = new Configuration({
