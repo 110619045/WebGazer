@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const getImages = async() => {
       const text = InputElement.value;
-      console.log('輸入為：' + text);
+      console.log('輸入為：' + text); //key house Surrealism
 
       const options = {
         method:"POST",
