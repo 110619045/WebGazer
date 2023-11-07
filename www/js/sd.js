@@ -1,5 +1,7 @@
-document.addEventListener('DOMContentLoaded', function() {
+import {setData, consoleLogApp} from './firebase.js';
 
+document.addEventListener('DOMContentLoaded', function() {
+  
   const submitButton = document.getElementById('submit-icon')
   const InputElement = document.getElementById('textInput')
   const ImageSection = document.getElementById('image-section')
@@ -7,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const getImages = async() => {
       const text = InputElement.value;
       console.log('輸入為：' + text); //key house Surrealism
+
+      setData(text);
 
       const options = {
         method:"POST",

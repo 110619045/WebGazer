@@ -1,4 +1,3 @@
-
 // 攝影鏡頭相關
 webgazer.showVideoPreview(false) /* shows all video previews */
         .showPredictionPoints(true) /* shows a square every 100 milliseconds where current prediction is */
