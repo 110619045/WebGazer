@@ -29,26 +29,51 @@ export function consoleLogApp(){
   console.log(app);
 }
 
-import { getDatabase, ref, set, update, push, child } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js';
+import { getDatabase, ref, set, update, push, child, onValue, get } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js';
 // import '/node_modules/@firebase/firestore';
 
 // 初始化 Firebase Realtime Database
 const database = getDatabase(app);
 
-// // 設定數據
-// const databaseRef = ref(database);
-// for(var i=0; i<=10; i++){
-//     set(databaseRef, i);
-// }
+// const dbRef = ref(database, '/test1/');
+var myData = firebase.database().ref('test1');
 
-export function setData( a ) {
-    // 建立一組亂數序號
-    const newKey = push(child(ref(database), 'users')).key;
-    
-    // 寫入資料
-    set(ref(database, 'users/' + newKey), {
-        username: a,
-    });
+export function getData(){
+  myData.once(a,b)
 
-    // return a;
+  get(child(dbRef, 'test2/')).then((snapshot) => {
+    if(snapshot.exists()) {
+      console.log(snapshot.val());
+    } else {
+      console.log('沒有資料');
+    }
+    }).catch((error) => {
+      console.error(error);
+  });
 }
+
+// get(child(dbRef, 'users/')).then((snapshot) => {
+//   if(snapshot.exists()) {
+//     console.log(snapshot.val());
+//   } else {
+//     console.log('沒有資料');
+//   }
+//   }).catch((error) => {
+//     console.error(error);
+// });
+
+export function setDataText(a,b) {
+  if (a === undefined) {
+    console.error('Error: Trying to set undefined value to Firebase');
+    return;
+} 
+  // 建立一組亂數序號
+  const newKey = push(child(ref(database), 'test1')).key;
+  // 寫入資料
+  set(ref(database, 'test2/' + newKey), {
+      text: a,
+      img: b,
+  });
+  // return a;
+}
+

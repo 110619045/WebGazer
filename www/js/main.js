@@ -6,11 +6,13 @@ webgazer.showVideoPreview(false) /* shows all video previews */
 // 取得Firebase引用
 // const db = firebase.database();
 var text = ['sky', 'cloud']; //key house Surrealism
+let myFun; 
 
 let currentElement = null; // 用於追蹤當前停留的元素
 let startTime = null;  //開始第一個元素的時間
 let PreviousElement = null;  //取得前一個元素
 window.onload = async function() {
+    myFun = await import('./myfirebase.js'); 
     // let startTime = Date.now(); //設定開始時間
 
     //start the webgazer tracker
@@ -66,7 +68,7 @@ window.onload = async function() {
 //                    console.log("元素：",PreviousElement.id);
                     if(PreviousElement.id != text[0]){
                         var newLength = text.unshift(PreviousElement.id); // 加到陣列前端
-                    
+                        myFun.setDataTest1(text);
                         // console.log(text);
                         getImages();
                     }

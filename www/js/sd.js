@@ -1,6 +1,14 @@
-import {setData, consoleLogApp} from './firebase.js';
+// import {setData, consoleLogApp} from './myfirebase.js';
+// const fun1 = require('./myfirebase.js'); // 但是如果之後在重新載入這個 module，並不會在重新引用一次
 
-document.addEventListener('DOMContentLoaded', function() {
+// (async () => {
+//   let myFun = await import('./myfirebase.js');
+//   myFun.setDataTest1('a');
+// })();
+let myFun; 
+
+document.addEventListener('DOMContentLoaded', async function() {
+  myFun = await import('./myfirebase.js'); 
   
   const submitButton = document.getElementById('submit-icon')
   const InputElement = document.getElementById('textInput')
@@ -9,8 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const getImages = async() => {
       const text = InputElement.value;
       console.log('輸入為：' + text); //key house Surrealism
-
-      setData(text);
 
       const options = {
         method:"POST",
@@ -37,7 +43,11 @@ document.addEventListener('DOMContentLoaded', function() {
           imageElement.setAttribute('src',imageObject.url)
           ImageContainer.append(imageElement)
           ImageSection.append(ImageContainer)
+          const imgURL = imageObject.url
+          // console.log(imgURL)
+          myFun.setDataText(text, imgURL);
         });
+        
       } catch (error){
         console.error(error)
       }

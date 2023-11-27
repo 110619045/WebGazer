@@ -28,6 +28,8 @@
   "dependencies": {
     "@tensorflow-models/face-landmarks-detection": "0.0.3",
     "@tensorflow/tfjs": "^3.15.0",
+    "bootstrap": "^5.3.2",
+    "firebase": "^10.5.2",
     "localforage": "1.7.3",
     "openai": "^4.11.1",
     "regression": "2.0.1"
