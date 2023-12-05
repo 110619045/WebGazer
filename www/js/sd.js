@@ -5,6 +5,8 @@
 //   let myFun = await import('./myfirebase.js');
 //   myFun.setDataTest1('a');
 // })();
+
+
 let myFun; 
 
 document.addEventListener('DOMContentLoaded', async function() {
@@ -15,11 +17,13 @@ document.addEventListener('DOMContentLoaded', async function() {
   const ImageSection = document.getElementById('image-section')
 
   const getImages = async() => {
+
       const text = InputElement.value;
       console.log('輸入為：' + text); //key house Surrealism
 
       const options = {
         method:"POST",
+        organization: 'org-t1HMopmI8iwe5MXN1lAKWHQB',
         headers:{
           // "Authorization":'Bearer ${API_KEY}',
           'Authorization': `Bearer ${API_KEY}`,

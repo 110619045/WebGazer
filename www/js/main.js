@@ -6,7 +6,7 @@ webgazer.showVideoPreview(false) /* shows all video previews */
 // 取得Firebase引用
 // const db = firebase.database();
 var text = ['sky', 'cloud']; //key house Surrealism
-let myFun; 
+// let myFun; 
 
 let currentElement = null; // 用於追蹤當前停留的元素
 let startTime = null;  //開始第一個元素的時間

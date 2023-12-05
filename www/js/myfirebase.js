@@ -35,13 +35,12 @@ import { getDatabase, ref, set, update, push, child, onValue, get } from 'https:
 // 初始化 Firebase Realtime Database
 const database = getDatabase(app);
 
-// const dbRef = ref(database, '/test1/');
-var myData = firebase.database().ref('test1');
+const dbRef = ref(database, '/test1/');
 
 export function getData(){
-  myData.once(a,b)
+  // dbRef.once(a,b)
 
-  get(child(dbRef, 'test2/')).then((snapshot) => {
+  get(child(dbRef, '/-Nkt4WMZmbYA9Bb2gnuQ/')).then((snapshot) => {
     if(snapshot.exists()) {
       console.log(snapshot.val());
     } else {
