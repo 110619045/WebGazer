@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async function() {
   const ImageSection = document.getElementById('image-section')
 
   const getImages = async() => {
-
+      
       const text = InputElement.value;
       console.log('輸入為：' + text); //key house Surrealism
 

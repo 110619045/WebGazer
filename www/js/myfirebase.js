@@ -35,12 +35,10 @@ import { getDatabase, ref, set, update, push, child, onValue, get } from 'https:
 // 初始化 Firebase Realtime Database
 const database = getDatabase(app);
 
-const dbRef = ref(database, '/test1/');
+const dbRef = ref(database, '/test2/');
 
 export function getData(){
-  // dbRef.once(a,b)
-
-  get(child(dbRef, '/-Nkt4WMZmbYA9Bb2gnuQ/')).then((snapshot) => {
+  get(child(dbRef, '/')).then((snapshot) => {
     if(snapshot.exists()) {
       console.log(snapshot.val());
     } else {
@@ -49,6 +47,7 @@ export function getData(){
     }).catch((error) => {
       console.error(error);
   });
+  console.log('key' + finalKey);
 }
 
 // get(child(dbRef, 'users/')).then((snapshot) => {
@@ -61,11 +60,13 @@ export function getData(){
 //     console.error(error);
 // });
 
+var finalKey = 1;
+
 export function setDataText(a,b) {
   if (a === undefined) {
     console.error('Error: Trying to set undefined value to Firebase');
     return;
-} 
+  } 
   // 建立一組亂數序號
   const newKey = push(child(ref(database), 'test1')).key;
   // 寫入資料
@@ -74,5 +75,6 @@ export function setDataText(a,b) {
       img: b,
   });
   // return a;
+  finalKey = newKey;
+  console.log('key' + finalKey);
 }
-
