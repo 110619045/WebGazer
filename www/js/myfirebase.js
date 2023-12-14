@@ -29,7 +29,7 @@ export function consoleLogApp(){
   console.log(app);
 }
 
-import { getDatabase, ref, set, update, push, child, onValue, get } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js';
+import { getDatabase, query, ref, set, update, push, child, onValue, get, orderByChild, limitToLast,orderByKey } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js';
 // import '/node_modules/@firebase/firestore';
 
 // 初始化 Firebase Realtime Database
@@ -37,30 +37,62 @@ const database = getDatabase(app);
 
 const dbRef = ref(database, '/test2/');
 
-export function getData(){
-  get(child(dbRef, '/')).then((snapshot) => {
-    if(snapshot.exists()) {
-      console.log(snapshot.val());
-    } else {
-      console.log('沒有資料');
-    }
-    }).catch((error) => {
-      console.error(error);
+const sortedRef = orderByKey(dbRef);
+const limitCount = 1; // 你想要的資料筆數
+const limitedRef = query(ref(database, 'test2'),limitToLast(limitCount));
+
+// export function getData(link){
+//   get(limitedRef).then((onSnapshot) => {
+//     if(onSnapshot.exists()) {
+//       const allItems = onSnapshot.val();
+//       // console.log(allItems);
+
+//       // 遍歷每個物件，並抓取img屬性
+//       for (const key in allItems) {
+//         if (allItems.hasOwnProperty(key)) {
+//           const imgContent = allItems[key].img;
+//           console.log(imgContent);
+//           link = imgContent;
+//           console.log(link);
+//           return link;
+//         }
+//       }
+
+//     } else {
+//       console.log('沒有資料');
+//     }
+//     }).catch((error) => {
+//       console.error(error);
+//   });
+// }
+
+export function getData() {
+  return new Promise((resolve, reject) => {
+    get(limitedRef)
+      .then((onSnapshot) => {
+        if (onSnapshot.exists()) {
+          const allItems = onSnapshot.val();
+
+          // 遍歷每個物件，並抓取 img 屬性
+          for (const key in allItems) {
+            if (allItems.hasOwnProperty(key)) {
+              const imgContent = allItems[key].img;
+              resolve(imgContent);
+              return;
+            }
+          }
+        } else {
+          console.log('沒有資料');
+          reject('沒有資料');
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        reject(error);
+      });
   });
-  console.log('key' + finalKey);
 }
 
-// get(child(dbRef, 'users/')).then((snapshot) => {
-//   if(snapshot.exists()) {
-//     console.log(snapshot.val());
-//   } else {
-//     console.log('沒有資料');
-//   }
-//   }).catch((error) => {
-//     console.error(error);
-// });
-
-var finalKey = 1;
 
 export function setDataText(a,b) {
   if (a === undefined) {
@@ -74,7 +106,4 @@ export function setDataText(a,b) {
       text: a,
       img: b,
   });
-  // return a;
-  finalKey = newKey;
-  console.log('key' + finalKey);
 }
