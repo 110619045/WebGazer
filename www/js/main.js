@@ -122,7 +122,7 @@ function Restart(){
 
 
 const getImages = async() => {
-      
+    
     const InputElement = JSON.stringify(text)
     // console.log('輸入為：' + text);
     console.log(InputElement)

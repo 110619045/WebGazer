@@ -76,14 +76,72 @@ button {
     right:2vw;
 }
 
+.MyWork{
+    padding: 2vh;
+    /* display: flex; */
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid black; */
+}
+
+.title{
+    display: flex;
+    justify-content: end;
+    /* justify-content: space-around; */
+}
+.MyWork h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5vw;
+    margin: 0;
+    padding: 3vh;
+}
+.summary{
+    width: 12vw;
+    padding: 0;
+    text-align: justify;
+    text-align-last: justify;
+    margin: auto;
+    margin-right: 0;
+    margin-left: 5vw;
+}
+.myID{
+    height: 12vh;
+    margin: auto;
+    margin-left: 5vw;
+    margin-right: 0;
+    padding-right: 1.5vw;
+}
+
+.MyWork h2{
+    font-size: 1vw;
+    margin: auto;
+    margin-left: 0;
+    margin-right: 0;
+}
+.info{
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5vh;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+
 .data{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap; 
     justify-content: space-between;
     border:1px #ccc solid;
-    margin:50px;
-    font-size: 4vw;
+    /* margin:50px; */
+    margin-left: 5VW;
+    margin-right: 5VW;
+    font-size: 3.5vw;
 }
 
 .data font{
@@ -128,6 +186,7 @@ button {
     }
 }
 
+/*hover family*/
 .rehovered {
     animation: rehoveredAnimation 0.3s 0s ease-in forwards;
 }
@@ -138,7 +197,7 @@ button {
 }
 
 .hovered-fm {
-    color: blue;
+    background-color: blue;
 }
 
 #key.hovered ~ #house, 
