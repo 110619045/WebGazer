@@ -11,6 +11,7 @@ var text = ['sky', 'cloud']; //key house Surrealism
 let currentElement = null; // 用於追蹤當前停留的元素
 let startTime = null;  //開始第一個元素的時間
 let PreviousElement = null;  //取得前一個元素
+
 window.onload = async function() {
     myFun = await import('./myfirebase.js'); 
     // let startTime = Date.now(); //設定開始時間
@@ -31,8 +32,7 @@ window.onload = async function() {
             var y = data.y;
             
             // console.log('startTime:', startTime); 
-            // console.log('x,y：'+ data.x + ',' + data.y);
-            // console.log('fontElements：'+ fontElements);
+            // console.log('x,y：'+ data.x + ',' + data.y);  //檢查位置
             // console.log('currentElement：', currentElement);
             
             // 迭代 font 元素，檢查獲得哪個元素
@@ -61,16 +61,15 @@ window.onload = async function() {
 //                console.log("跟上一個一樣");
                 totalTime = currentTime - startTime;
 
-                if(totalTime >= 1500){
+                if(totalTime >= 2000){
 //                    console.log('總共看了：', totalTime);
                     // PreviousElement.classList.remove('rehovered');
                     PreviousElement.classList.add('hovered');
 //                    console.log("元素：",PreviousElement.id);
                     if(PreviousElement.id != text[0]){
                         var newLength = text.unshift(PreviousElement.id); // 加到陣列前端
-                        myFun.setDataTest1(text);
-                        // console.log(text);
-                        getImages();
+                        console.log(text);
+                        // getImages();
                     }
                 }
             }
@@ -103,7 +102,6 @@ window.onload = async function() {
     //     canvas.style.position = 'fixed';
     // };
     // setup();
-
 };
 
 // Set to true if you want to save the data even if you reload the page.
@@ -124,6 +122,7 @@ function Restart(){
 
 
 const getImages = async() => {
+      
     const InputElement = JSON.stringify(text)
     // console.log('輸入為：' + text);
     console.log(InputElement)
@@ -156,7 +155,12 @@ const getImages = async() => {
       imageElement.setAttribute('src',imageObject.url)
       ImageContainer.append(imageElement)
       ImageSection.append(ImageContainer)
+      
+      myFun.setDataText(text, imageObject.url);
     });
+
+   
+    
   } catch (error){
     console.error(error)
   }
