@@ -1,4 +1,4 @@
-window.onload = async function() {
+window.addEventListener = async function() {
     // 獲取當前日期
     const currentDate = new Date();
 

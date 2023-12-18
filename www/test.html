@@ -12,28 +12,18 @@
         <script type="module" src="https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js"></script>
         <script type="module" src="https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js"></script>
 
-        <!-- <script type="module" src="./js/myfirebase.js"></script> -->
         <script src="./webgazer.js"></script>
-
         <script type="module" src="./js/myfirebase.js"></script>
-        <script src="js/sd.js"></script>
     </head>
     
     <body LANG="en-US" LINK="#0000ff" DIR="LTR">
-      <!-- <section class="bottom-section">
-        <div class="input-container">
-          <input>
-          <button id="submit-icon"> ➤ </button>
-        </div>
-      </section> -->
-
       <div class="MyWork">
         <div class="title">
           <h1> Illusory Eyescape </h1>
           <div class="summary">
             <!-- Exploring The Variations Of Consciousness Through The Use Of Technological Art. -->
             <h2>
-              Exploring The Variations Of Consciousness Through The Utilization Of Technological Art.
+              Exploring The Variations Of Consciousness Through The Utilization Of Technological Art
             </h2>
           </div> 
           <img class="myID" src="./image/110462008.jpeg">
@@ -45,29 +35,64 @@
         </div>
       </div>
       
-      <div class="data excluded">
-        <font id="key"              class="key              ">Key         </font>
-        <font id="house"            class="house data-key-fm">House       </font>
-        <font id="apple"            class="apple            ">Apple       </font>
-        <font id="game"             class="game data-key-fm ">Game        </font>
-        <font id="computer"         class="computer         ">Computer    </font>
-        <font id="technical"        class="technical        ">Technical   </font>
-        <font id="phone"            class="phone            ">Phone       </font>
-        <font id="shop"             class="shop             ">Shop        </font>
-        <font id="water"            class="water            ">Water       </font>
-        <font id="cup"              class="cup              ">Cup           </font>
-        <font id="fruit"            class="fruit            ">Fruit         </font>
-        <font id="ocean"            class="ocean            ">Ocean         </font>
-        <font id="drink"            class="drink            ">Drink         </font>
-        <font id="lake"             class="lake             ">Lake          </font>
-        <font id="communication"    class="communication    ">Communication </font>
-        <font id="net"              class="net              ">Net           </font>
-        <font id="ball"             class="ball             ">Ball          </font>
-        <font id="technical"        class="technical        ">Technical     </font>
-        <font id="science"          class="science          ">Science       </font>
-        <font id="fish"             class="fish             ">Fish          </font>
-        <font id="school"           class="school           ">School</font>
-        
+      <div class="data excluded row">
+        <div class="datas col-3">
+          <div class="data-sm">
+            <font id="computer"         class="computer         ">Computer    </font>
+            <font id="technical"        class="technical        ">Technical   </font>  
+            <font id="lake"             class="lake             ">Lake        </font>  
+            <font id="science"          class="science          ">Science       </font>
+            <font id="fish"             class="fish             ">Fish          </font>
+            <font id="school"           class="school           ">School        </font>
+          </div>
+          <div class="data-lg">
+            <font id="key"              class="key              ">Key         </font>
+            <font id="house"            class="house data-key-fm">House       </font>  
+            <font id="apple"            class="apple            ">Apple       </font>
+            <font id="game"             class="game data-key-fm ">Game        </font>
+          </div>
+          <div class="data-sm">
+            <font id="communication"    class="communication    ">Communication </font>
+            <font id="net"              class="net              ">Net           </font>
+            <font id="ball"             class="ball             ">Ball          </font>
+            <font id="technical"        class="technical        ">Technical     </font>  
+          </div>
+        </div>
+
+        <div class="datas col-8">
+          <div class="data-lg">
+            <font id="phone"            class="phone            ">Phone       </font>
+            <font id="shop"             class="shop             ">Shop        </font>
+            <font id="water"            class="water            ">Water       </font>
+            <font id="cup"              class="cup              ">Cup           </font>  
+            <font id="phone"            class="phone            ">Phone       </font>
+            <font id="shop"             class="shop             ">Shop        </font>
+            <font id="water"            class="water            ">Water       </font>
+            <font id="cup"              class="cup              ">Cup           </font>  
+          </div>
+          <div class="row data-2">
+            <div class="data-sm col-7">
+              <font id="phone"            class="phone            ">Phone       </font>
+              <font id="shop"             class="shop             ">Shop        </font>
+              <font id="water"            class="water            ">Water       </font>
+              <font id="cup"              class="cup              ">Cup           </font>  
+              <font id="phone"            class="phone            ">Phone       </font>
+              <font id="shop"             class="shop             ">Shop        </font>
+              <font id="water"            class="water            ">Water       </font>
+              <font id="cup"              class="cup              ">Cup           </font>  
+          </div>
+            <div class="data-sm col-4">
+              <font id="phone"            class="phone            ">Phone       </font>
+              <font id="shop"             class="shop             ">Shop        </font>
+              <font id="water"            class="water            ">Water       </font>
+              <font id="cup"              class="cup              ">Cup           </font>  
+              <font id="fruit"            class="fruit            ">Fruit         </font>
+              <font id="ocean"            class="ocean            ">Ocean         </font>
+              <font id="drink"            class="drink            ">Drink         </font>    
+            </div>
+          </div>
+          
+        </div>
       </div>
 
       <canvas id="plotting_canvas" width="500" height="500" style="cursor:crosshair;"></canvas>
@@ -107,10 +132,10 @@
           </div>
         </div>
 
-        <div class="show">
+        <!-- <div class="show">
           <img id="image-bg" src="./image/1.png">
           <section id="image-section"></section>
-        </div>
+        </div> -->
 
         <!-- Latest compiled JavaScript -->
         <script src="./js/resize_canvas.js"></script>
