@@ -56,18 +56,18 @@ window.onload = async function() {
 
             if(currentElement === PreviousElement){
                 currentTime = new Date().getTime(); //現在時間
-//                console.log("跟上一個一樣");
+                // console.log("跟上一個一樣");
                 totalTime = currentTime - startTime;
 
                 if(totalTime >= 1500){
-//                    console.log('總共看了：', totalTime);
+                    // console.log('總共看了：', totalTime);
                     // PreviousElement.classList.remove('rehovered');
                     PreviousElement.classList.add('hovered');
-//                    console.log("元素：",PreviousElement.id);
+                    // console.log("元素：",PreviousElement.id);
                     if(PreviousElement.id != text[0]){
                         var newLength = text.unshift(PreviousElement.id); // 加到陣列前端
                         console.log(text);
-                        // getImages();
+                        getImages();
                     }
                 }
             }
@@ -120,8 +120,7 @@ function Restart(){
 
 
 const getImages = async() => {
-
-
+    
     const InputElement = JSON.stringify(text)
     // console.log('輸入為：' + text);
     // console.log(InputElement)
