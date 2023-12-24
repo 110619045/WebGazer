@@ -43,8 +43,18 @@ window.onload = async function() {
                     // console.log("PreviousElement:" + PreviousElement);
                     currentElement = fontElement;
 
+                    // const itemfm = document.querySelectorAll('.' +currentElement+ '-fm');
+                    // itemfm.forEach(item =>)
+                    // const groupClass = Array.from(fontElement.classList).find(className => className.endsWith('-fm'));
                     currentElement.style.fontSize = '105%';
-                    console.log('currentElement1：', currentElement);
+                    const itemFmName = currentElement.textContent +'-fm';
+                    const itemFm = document.getElementsByClassName(itemFmName);
+                   
+                    // if(){
+                    //   itemFm.style.backgroundColor = 'black';
+                    // }
+                    console.log('currentElement',currentElement);
+                    console.log('itemfm：',itemFm);
                 }
             }
             // console.log('currentElement2：', currentElement);
@@ -119,7 +129,6 @@ function Restart(){
 
 
 const getImages = async() => {
-  const API_KEY = "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" //sd-test
   const InputElement = JSON.stringify(text)
   // console.log('輸入為：' + text);
   // console.log(InputElement)
