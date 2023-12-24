@@ -210,12 +210,10 @@ button {
 .rehovered {
     animation: rehoveredAnimation 0.3s 0s ease-in forwards;
 }
-
 .hovered {
     /* animation: hoveredAnimation 0.3s 0s ease-in forwards; */
     transform: scale(1.2);
 }
-
 .hovered-fm {
     color: blue;
 }
@@ -224,6 +222,10 @@ button {
 #key.hovered ~ #game {
     background-color: black;
     color: #fff;
+}
+
+#game.hovered {
+    
 }
 
 .input-container{

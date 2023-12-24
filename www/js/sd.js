@@ -32,9 +32,11 @@ document.addEventListener('DOMContentLoaded', async function() {
         body: JSON.stringify({
           "prompt": InputElement.value,
           "n": 1,
-          "size": "256x256"
+          // "size": "256x256"
+          "size": "1024*1024"
         })
       }
+
       try {
         const response = await fetch('https://api.openai.com/v1/images/generations', options)
         const data = await response.json()
@@ -51,7 +53,7 @@ document.addEventListener('DOMContentLoaded', async function() {
           // console.log(imgURL)
           myFun.setDataText(text, imgURL);
         });
-        
+
       } catch (error){
         console.error(error)
       }

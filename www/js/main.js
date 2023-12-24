@@ -3,18 +3,18 @@ webgazer.showVideoPreview(false) /* shows all video previews */
         .showPredictionPoints(true) /* shows a square every 100 milliseconds where current prediction is */
         .applyKalmanFilter(true); /* Kalman Filter defaults to on. Can be toggled by user. */
 
-var text = ['sky', 'cloud']; //key house Surrealism
+var text = ['sky', 'cloud']; // key house Surrealism
 
 let currentElement = null; // 用於追蹤當前停留的元素
-let startTime = null;  //開始第一個元素的時間
-let PreviousElement = null;  //取得前一個元素
+let startTime = null;  // 開始第一個元素的時間
+let PreviousElement = null;  // 取得前一個元素
 
 window.onload = async function() {
     // console.log('網頁已載入');
     myFun = await import('./myfirebase.js'); 
     // let startTime = Date.now(); //設定開始時間
 
-    //start the webgazer tracker
+    // start the webgazer tracker
     await webgazer.setRegression('ridge') /* currently must set regression and tracker */
         //.setTracker('clmtrackr')
         .setGazeListener(function(data, timestamp) {
@@ -62,27 +62,28 @@ window.onload = async function() {
                 if(totalTime >= 1500){
                     // console.log('總共看了：', totalTime);
                     // PreviousElement.classList.remove('rehovered');
+                    
                     PreviousElement.classList.add('hovered');
                     // console.log("元素：",PreviousElement.id);
                     if(PreviousElement.id != text[0]){
                         var newLength = text.unshift(PreviousElement.id); // 加到陣列前端
                         console.log(text);
-                        getImages();
+                        // getImages();
                     }
                 }
             }
 
             if(currentElement !== PreviousElement){
                 // PreviousElement.classList.add('rehovered');
-                PreviousElement.classList.remove('hovered');
+                // PreviousElement.classList.remove('hovered');
                 
                 startTime = new Date().getTime();  //設定新的開始時間
-//                console.log("跟上一個不一樣");
+                // console.log("跟上一個不一樣");
                 PreviousElement = currentElement;       //設定新的前一個元素
-//                console.log('新的PreviousElement：', PreviousElement);
+                // console.log('新的PreviousElement：', PreviousElement);
             }
 
-//            console.log(text);
+            // console.log(text);
         })
         .saveDataAcrossSessions(true)
         .begin();
@@ -109,7 +110,7 @@ window.onbeforeunload = function() {
     webgazer.end();
 }
 
-//  Restart the calibration process by clearing the local storage and reseting the calibration point
+// Restart the calibration process by clearing the local storage and reseting the calibration point
 
 function Restart(){
     document.getElementById("Accuracy").innerHTML = "<a>Not yet Calibrated</a>";
@@ -120,10 +121,10 @@ function Restart(){
 
 
 const getImages = async() => {
-    
-    const InputElement = JSON.stringify(text)
-    // console.log('輸入為：' + text);
-    // console.log(InputElement)
+
+  const InputElement = JSON.stringify(text)
+  // console.log('輸入為：' + text);
+  // console.log(InputElement)
 
   const options ={
     method:"POST",
