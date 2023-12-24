@@ -31,8 +31,7 @@ window.onload = async function() {
             
             // console.log('startTime:', startTime); 
             // console.log('x,y：'+ data.x + ',' + data.y);  //檢查位置
-            // console.log('currentElement：', currentElement);
-            
+
             // 迭代 font 元素，檢查獲得哪個元素
             for (const fontElement of fontElements) {
                 const rect = fontElement.getBoundingClientRect();
@@ -43,7 +42,9 @@ window.onload = async function() {
                     // console.log('找到匹配的 font 元素：', fontElement);
                     // console.log("PreviousElement:" + PreviousElement);
                     currentElement = fontElement;
-                    // console.log('currentElement1：', currentElement);
+
+                    currentElement.style.fontSize = '105%';
+                    console.log('currentElement1：', currentElement);
                 }
             }
             // console.log('currentElement2：', currentElement);
@@ -61,28 +62,25 @@ window.onload = async function() {
 
                 if(totalTime >= 1500){
                     // console.log('總共看了：', totalTime);
-                    // PreviousElement.classList.remove('rehovered');
-                    
-                    PreviousElement.classList.add('hovered');
                     // console.log("元素：",PreviousElement.id);
                     if(PreviousElement.id != text[0]){
                         var newLength = text.unshift(PreviousElement.id); // 加到陣列前端
                         console.log(text);
+                        // currentElement.style.fontSize = '95%';
                         // getImages();
                     }
                 }
             }
-
+            
             if(currentElement !== PreviousElement){
-                // PreviousElement.classList.add('rehovered');
-                // PreviousElement.classList.remove('hovered');
+                PreviousElement.style.fontSize = '95%';
                 
                 startTime = new Date().getTime();  //設定新的開始時間
                 // console.log("跟上一個不一樣");
-                PreviousElement = currentElement;       //設定新的前一個元素
+                PreviousElement = currentElement;  //設定新的前一個元素
                 // console.log('新的PreviousElement：', PreviousElement);
             }
-
+            
             // console.log(text);
         })
         .saveDataAcrossSessions(true)
@@ -121,7 +119,7 @@ function Restart(){
 
 
 const getImages = async() => {
-
+  const API_KEY = "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" //sd-test
   const InputElement = JSON.stringify(text)
   // console.log('輸入為：' + text);
   // console.log(InputElement)
@@ -136,7 +134,7 @@ const getImages = async() => {
     body: JSON.stringify({
       "prompt": "Surrealism" + InputElement,
       "n": 1,
-      "size": "256x256"
+      size: "1024x1024"
     })
   }
 

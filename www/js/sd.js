@@ -6,7 +6,6 @@
 //   myFun.setDataTest1('a');
 // })();
 
-
 let myFun; 
 
 document.addEventListener('DOMContentLoaded', async function() {
@@ -17,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async function() {
   const ImageSection = document.getElementById('image-section')
 
   const getImages = async() => {
-      
+      const API_KEY = "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" //sd-test      
       const text = InputElement.value;
       console.log('輸入為：' + text); //key house Surrealism
 
@@ -32,8 +31,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         body: JSON.stringify({
           "prompt": InputElement.value,
           "n": 1,
-          // "size": "256x256"
-          "size": "1024*1024"
+          size: "1024x1024",
         })
       }
 

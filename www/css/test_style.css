@@ -3,6 +3,7 @@ body {
     min-width:600px!important;
     /* background-color: red; */
     overflow: hidden;
+    margin: 0;
 }
 
 button {
@@ -211,25 +212,22 @@ button {
     animation: rehoveredAnimation 0.3s 0s ease-in forwards;
 }
 .hovered {
-    /* animation: hoveredAnimation 0.3s 0s ease-in forwards; */
-    transform: scale(1.2);
+    background-color: yellow;
 }
 .hovered-fm {
     color: blue;
 }
 
-#key.hovered ~ #house, 
-#key.hovered ~ #game {
+#key.hovered #house, 
+#key.hovered #game {
     background-color: black;
     color: #fff;
 }
 
-#game.hovered {
-    
-}
-
 .input-container{
+    height: 100vh;
     width: 100%;
+    
     max-width: 650px;
     position: relative;
 }
@@ -247,17 +245,22 @@ input{
 }
 
 .show{
+    
     position: relative;
-    top: 40vh;
+    top: 50vh;
 
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center; 
 }
+.show img{
+    height: 100vh;
+}
 
 #image-bg{
-    height: 256px;
+    /* height: 256px; */
+    height: 100vh;
     max-width: 100%; /* 设置最大宽度为100% */
     /* background-image: url(../1.png); */
     position: absolute;
@@ -268,7 +271,8 @@ input{
 #image-section{
     position: absolute;
     z-index: 1;
-    height: 256px;
+    /* height: 256px; */
+    height: 100vh;
     /* max-width: 100%; */
     width: 100%;;
     /* transform: translate(-50%, -50%); */
@@ -282,13 +286,15 @@ input{
 #bg{
     position: absolute;
     z-index: 2;
-    height: 256px;
+    height: 100vh;
+    /* height: 256px; */
     width: 100%;;
     background-image: url(../The_False_Mirror.jpg);
 }
 
 #image-bg-sky {
-    height: 256px;
+    height: 100vh;
+    /* height: 256px; */
     max-width: 100%; /* 设置最大宽度为100% */
     /* background-image: url(../1.png); */
     position: absolute;
