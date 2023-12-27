@@ -2,7 +2,7 @@ let myFun;
 // myFun = import('./myfirebase.js'); 
 // myFun.getData();
 
-window.onload = async function() {
+window.addEventListener = async function() {
   myFun = await import('./myfirebase.js');
   console.log('show');
   const ImageSection = document.getElementById('image-section');

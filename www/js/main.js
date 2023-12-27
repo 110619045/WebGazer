@@ -43,7 +43,7 @@ window.onload = async function() {
                     // console.log("PreviousElement:" + PreviousElement);
                     currentElement = fontElement;
 
-                    currentElement.style.fontSize = '105%';
+                    currentElement.style.fontSize = '110%';
 
                     const itemFmName = currentElement.textContent +'-fm';
                     const itemFm = document.getElementsByClassName(itemFmName);
@@ -77,7 +77,7 @@ window.onload = async function() {
                     if(PreviousElement.id != text[0]){
                         var newLength = text.unshift(PreviousElement.id); // 加到陣列前端
                         console.log(text);
-                        getImages();
+                        // getImages();
                     }
                 }
             }
@@ -132,6 +132,10 @@ window.onload = async function() {
     //     canvas.style.position = 'fixed';
     // };
     // setup();
+    
+    document.getElementById('Pt1').addEventListener('click', function() {
+      console.log('Button clicked!');
+    });
 };
 
 // Set to true if you want to save the data even if you reload the page.
@@ -149,7 +153,7 @@ function Restart(){
     PopUpInstruction();
 }
 
-
+// Call API to get image
 const getImages = async() => {
   
   const InputElement = JSON.stringify(text)

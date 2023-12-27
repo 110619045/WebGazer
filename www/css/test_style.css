@@ -32,7 +32,8 @@ button {
     -moz-border-radius: 25px;
     border-radius: 25px;
     background-color: red;
-    opacity: 0.2;
+    /* opacity: 0.2; */
+    opacity: 0;
     border-color: black;
     border-style: solid;
     position:fixed;

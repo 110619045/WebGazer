@@ -139,6 +139,7 @@ function docLoad() {
     document.querySelectorAll('.Calibration').forEach((i) => {
         i.addEventListener('click', () => {
             calPointClick(i);
+            console.log('pt+' +i);
         })
     })
 };
