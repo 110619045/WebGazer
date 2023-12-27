@@ -1,11 +1,3 @@
-// import {setData, consoleLogApp} from './myfirebase.js';
-// const fun1 = require('./myfirebase.js'); // 但是如果之後在重新載入這個 module，並不會在重新引用一次
-
-// (async () => {
-//   let myFun = await import('./myfirebase.js');
-//   myFun.setDataTest1('a');
-// })();
-
 let myFun; 
 
 document.addEventListener('DOMContentLoaded', async function() {
@@ -16,6 +8,7 @@ document.addEventListener('DOMContentLoaded', async function() {
   const ImageSection = document.getElementById('image-section')
 
   const getImages = async() => {
+      
       const text = InputElement.value;
       console.log('輸入為：' + text); //key house Surrealism
 
@@ -58,21 +51,3 @@ document.addEventListener('DOMContentLoaded', async function() {
 
   submitButton.addEventListener('click', getImages)
 });
-
-// import { Configuration, OpenAIApi } from "openai";
-// const configuration = new Configuration({
-//     organization: "org-IuMJAIzBzapUPslPCf0EQzV2",
-//     // apiKey: process.env.OPENAI_API_KEY,
-//     apiKey : ,
-// });
-
-// const openai = new OpenAIApi(configuration);
-// // const response = await openai.listEngines();
-
-// const response = await openai.createImage({
-//     prompt: "a white siamese cat",
-//     n: 1,
-//     size: "1024x1024",
-//   });
-// image_url = response.data.data[0].url;
-// console.log(image_url);

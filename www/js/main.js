@@ -43,21 +43,23 @@ window.onload = async function() {
                     // console.log("PreviousElement:" + PreviousElement);
                     currentElement = fontElement;
 
-                    // const itemfm = document.querySelectorAll('.' +currentElement+ '-fm');
-                    // itemfm.forEach(item =>)
-                    // const groupClass = Array.from(fontElement.classList).find(className => className.endsWith('-fm'));
                     currentElement.style.fontSize = '105%';
+
                     const itemFmName = currentElement.textContent +'-fm';
                     const itemFm = document.getElementsByClassName(itemFmName);
-                   
-                    // if(){
-                    //   itemFm.style.backgroundColor = 'black';
-                    // }
-                    console.log('currentElement',currentElement);
-                    console.log('itemfm：',itemFm);
+                    
+                    for (var i = 0; i < itemFm.length; i++) {
+                      var itemFmElement = itemFm[i];
+                      if(typeof itemFmElement !== 'undefined'){
+                        itemFmElement.style.backgroundColor = 'black';
+                        itemFmElement.style.color = '#fff';
+                      }else{
+                        console.log('undefined');
+                      } 
+                    }
+                    // console.log('itemFmElement:',itemFmElement);
                 }
             }
-            // console.log('currentElement2：', currentElement);
 
             if(PreviousElement === null){       //初始化前一個元素
                 PreviousElement = currentElement; 
@@ -69,28 +71,49 @@ window.onload = async function() {
                 currentTime = new Date().getTime(); //現在時間
                 // console.log("跟上一個一樣");
                 totalTime = currentTime - startTime;
-
                 if(totalTime >= 1500){
                     // console.log('總共看了：', totalTime);
                     // console.log("元素：",PreviousElement.id);
                     if(PreviousElement.id != text[0]){
                         var newLength = text.unshift(PreviousElement.id); // 加到陣列前端
                         console.log(text);
-                        // currentElement.style.fontSize = '95%';
-                        // getImages();
+                        getImages();
                     }
                 }
             }
             
             if(currentElement !== PreviousElement){
                 PreviousElement.style.fontSize = '95%';
-                
+
+                const PreviousElementFmName = PreviousElement.textContent +'-fm';
+                const PreviousFm = document.getElementsByClassName(PreviousElementFmName);
+                // console.log('PreviousElement：',PreviousElement);
+                // console.log('currentElement：',currentElement);
+
+                if (PreviousFm.length === 0) {
+                  console.log('HTMLCollection 是空的');
+              } else {
+                  for (let i = 0; i < PreviousFm.length; i++) {
+                      var PreviousFmElement = PreviousFm[i];
+                      if (typeof PreviousFmElement !== 'undefined') {
+                          setTimeout(function (element) {
+                              return function () {
+                                  // console.log('PreviousFmElement', i, '：', element);
+                                  element.style.backgroundColor = '';
+                                  element.style.color = '';
+                              };
+                          }(PreviousFmElement), 800 );
+                      } else {
+                          // console.log('undefined');
+                      }
+                  }
+                  // console.log('HTMLCollection 不是空的');
+              }
                 startTime = new Date().getTime();  //設定新的開始時間
                 // console.log("跟上一個不一樣");
                 PreviousElement = currentElement;  //設定新的前一個元素
                 // console.log('新的PreviousElement：', PreviousElement);
             }
-            
             // console.log(text);
         })
         .saveDataAcrossSessions(true)
@@ -119,7 +142,6 @@ window.onbeforeunload = function() {
 }
 
 // Restart the calibration process by clearing the local storage and reseting the calibration point
-
 function Restart(){
     document.getElementById("Accuracy").innerHTML = "<a>Not yet Calibrated</a>";
     webgazer.clearData();
@@ -129,6 +151,7 @@ function Restart(){
 
 
 const getImages = async() => {
+  
   const InputElement = JSON.stringify(text)
   // console.log('輸入為：' + text);
   // console.log(InputElement)
