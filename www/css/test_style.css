@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+
 body {
     min-width:600px!important;
     /* background-color: red; */
@@ -257,9 +258,6 @@ input{
     justify-content: center;
     align-items: center; 
 }
-.show img{
-    height: 100vh;
-}
 
 #image-bg{
     /* height: 256px; */
@@ -269,21 +267,6 @@ input{
     position: absolute;
     z-index: 2;
     /* transform: translate(-50%, -50%); */
-}
-
-#image-section{
-    position: absolute;
-    z-index: 1;
-    /* height: 256px; */
-    height: 100vh;
-    /* max-width: 100%; */
-    width: 100%;;
-    /* transform: translate(-50%, -50%); */
-    text-align: center;
-    /* background-image: url(../The_False_Mirror.jpg); */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 #bg{
@@ -309,12 +292,36 @@ input{
     padding-bottom:110%;
 }
 
+#image-section{
+    position: absolute;
+    z-index: 1;
+    /* height: 256px; */
+    height: 100vh;
+    /* max-width: 100%; */
+    width: 100%;;
+    /* transform: translate(-50%, -50%); */
+    text-align: center;
+    /* background-image: url(../The_False_Mirror.jpg); */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .image-show img{
     width: 100%;
     height: 100%;
     margin-top: 3vh;
-    /* margin-bottom: 4vh; */
     filter: grayscale(100%);
+}
+
+#image-bg-IllusoryEyescape {
+    filter: grayscale(100%);
+    max-width: 100%;
+    margin-top: 3vh;
+
+    position:absolute;
+    z-index: -1;
+    padding-bottom: 155%;
 }
 
 @keyframes dissolve {

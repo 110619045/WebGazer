@@ -6,6 +6,8 @@ window.addEventListener = async function() {
   myFun = await import('./myfirebase.js');
   console.log('show');
   const ImageSection = document.getElementById('image-section');
+  const ImageBgIE = document.getElementById('image-bg-IllusoryEyescape');
+  
   let link = 'a';
 
   setInterval(async () => {
@@ -19,6 +21,7 @@ window.addEventListener = async function() {
         console.log('imgUrl = ' + imgUrl);
 
         // 添加溶解動畫
+        // ImageBgIE.style.animation = 'dissolve 5s forwards';
         ImageSection.style.animation = 'dissolve 5s forwards';
         // 等待溶解動畫完成
         await new Promise(resolve => setTimeout(resolve, 5000));
@@ -37,5 +40,5 @@ window.addEventListener = async function() {
     } catch (error) {
       console.error(error);
     }
-  }, 3000);
+  }, 5000);
 };

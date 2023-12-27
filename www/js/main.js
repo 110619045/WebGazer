@@ -155,7 +155,7 @@ function Restart(){
 
 // Call API to get image
 const getImages = async() => {
-  
+  const API_KEY = "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" //sd-test
   const InputElement = JSON.stringify(text)
   // console.log('輸入為：' + text);
   // console.log(InputElement)

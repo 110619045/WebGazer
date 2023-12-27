@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', async function() {
   const ImageSection = document.getElementById('image-section')
 
   const getImages = async() => {
-    
+      const API_KEY = "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" //sd-test
       const text = InputElement.value;
       console.log('輸入為：' + text); //key house Surrealism
 
