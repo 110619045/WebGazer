@@ -42,40 +42,45 @@ button {
 
 /* Calibration point position */
 #Pt1{
-    top: 2vw;
-    left: 2vw;
+    top: 13vw;
+    left: 1vw;
 }
 #Pt2{
-    top: 2vw;
+    top: 13vw;
     left:50vw;
 }
 #Pt3{
-    top: 2vw;
-    right:2vw;
+    top: 13vw;
+    right:1vw;
 }
 #Pt4{
-    top:50vh;
-    left:2vw;
+    top: 60vh;
+    left:1vw;
 }
 #Pt5{
-    top: 50vh;
+    top: 60vh;
     left: 50vw;
 }
 #Pt6{
-    top: 50vh;
-    right:2vw;
+    top: 60vh;
+    right:1vw;
 }
 #Pt7{
-    bottom:2vw;
-    left: 2vw;
+    bottom:1vw;
+    left: 1vw;
 }
 #Pt8{
-    bottom:2vw;
+    bottom:1vw;
     left:50vw;
 }
 #Pt9{
-    bottom:2vw;
-    right:2vw;
+    bottom:1vw;
+    right:1vw;
+}
+
+#start-icon{
+    border: 0px;
+    position: absolute;
 }
 
 .MyWork{
@@ -92,7 +97,6 @@ button {
     display: flex;
     justify-content: end;
     font-family: 'Lora', serif;
-
 }
 .MyWork h1{
     display: flex;
@@ -316,7 +320,7 @@ input{
 
 #image-bg-IllusoryEyescape {
     filter: grayscale(100%);
-    max-width: 100%;
+    max-width: 98%;
     margin-top: 3vh;
 
     position:absolute;
@@ -346,3 +350,23 @@ input{
 .image-container.fade-in {
     animation: fadeIn 5s ease-in-out; /* 設定淡入動畫，時間可以根據需要調整 */
 }
+
+.test3{
+    background-color: #000;
+}
+
+.ori_img{
+    width: 20vw;
+}
+
+.original {
+    font-size: 3vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* 最初搞設計
+font{
+    padding: 0 8px 0 8px;
+} */

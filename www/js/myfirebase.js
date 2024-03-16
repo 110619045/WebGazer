@@ -12,14 +12,26 @@ import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+//舊 0304phoebe
+// const firebaseConfig = {
+//   apiKey: "AIzaSyAeKDCSCxOR2e_Pglko9BezH77KbDdnjbc",
+//   authDomain: "test1-877ad.firebaseapp.com",
+//   databaseURL: "https://test1-877ad-default-rtdb.firebaseio.com",
+//   projectId: "test1-877ad",
+//   storageBucket: "test1-877ad.appspot.com",
+//   messagingSenderId: "1012563815526",
+//   appId: "1:1012563815526:web:5d4186658dc6e530ef11a7"
+// };
+
+//新 nccu
 const firebaseConfig = {
-  apiKey: "AIzaSyAeKDCSCxOR2e_Pglko9BezH77KbDdnjbc",
-  authDomain: "test1-877ad.firebaseapp.com",
-  databaseURL: "https://test1-877ad-default-rtdb.firebaseio.com",
-  projectId: "test1-877ad",
-  storageBucket: "test1-877ad.appspot.com",
-  messagingSenderId: "1012563815526",
-  appId: "1:1012563815526:web:5d4186658dc6e530ef11a7"
+  apiKey: "AIzaSyD9PpF2gzHOpUqZ8V6R36XMGa4466abOAU",
+  authDomain: "sd-test-d0e0c.firebaseapp.com",
+  projectId: "sd-test-d0e0c",
+  storageBucket: "sd-test-d0e0c.appspot.com",
+  messagingSenderId: "1009899610978",
+  appId: "1:1009899610978:web:be3688bdbea9e4668b023b",
+  measurementId: "G-L4MQ77GWYX"
 };
 
 // Initialize Firebase
@@ -100,7 +112,8 @@ export function setDataText(a,b) {
     return;
   } 
   // 建立一組亂數序號
-  const newKey = push(child(ref(database), 'test1')).key;
+  // const newKey = push(child(ref(database), 'test1')).key;
+  const newKey = push(child(ref(database), 'sd-test')).key;
   // 寫入資料
   set(ref(database, 'test2/' + newKey), {
       text: a,

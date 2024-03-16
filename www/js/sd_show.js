@@ -3,6 +3,7 @@ let myFun;
 // myFun.getData();
 
 window.addEventListener = async function() {
+  
   myFun = await import('./myfirebase.js');
   console.log('show');
   const ImageSection = document.getElementById('image-section');
